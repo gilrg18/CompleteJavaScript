@@ -21,3 +21,10 @@ let PI = 3.1416;
 let myFirstJob = "Support";
 let myCurrentJob = "Dj";
 //instead of job1, job2, etc...
+
+//Assignment: Values and Variables
+let country = "Mexico";
+let continent = "America";
+let population = 126700000;
+
+console.log(country + " " + continent + " " + population);
