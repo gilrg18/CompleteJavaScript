@@ -98,3 +98,21 @@ console.log(ageGil > ageMike); //false
 console.log(ageMike >= 29); // true
 const isFullAge = ageGil >= 28;
 console.log(isFullAge);
+
+//Assignment: Basic Operators
+console.log(population / 2);
+population++;
+console.log(population);
+const finlandPopulation = 6000000;
+console.log(population > finlandPopulation);
+const avgPopulation = 33000000;
+console.log(population < avgPopulation);
+const description =
+  country +
+  " is in " +
+  continent +
+  ", and its " +
+  population +
+  " people speak " +
+  language;
+console.log(description);
