@@ -49,8 +49,26 @@ console.log(typeof null); //object (which is a bug, it should be null)
 
 //Assignment: Data Types
 let isIsland = false;
-let language;
+const language = "Espanol";
 console.log(typeof isIsland); //"boolean"
 console.log(typeof population); //"number"
 console.log(typeof country); //"string"
 console.log(typeof language); //"undefined"
+
+//let, const and var
+let age = 30;
+age = 31; //'mutating' the variable
+
+//const for variables that are not supposed to change in the future
+const birthYear = 1996;
+//birthYear = 1997; //typerror: assignment to constant variable
+//you cannot declare empty const variables
+
+var job = "dj";
+job = "programmer";
+//var and let have scope differences
+//which will be explained in advanced sections
+//more differences in advanced sections
+
+//Assignment: let, const and var
+//language = "English"; //TypeError assignment to constant variable
