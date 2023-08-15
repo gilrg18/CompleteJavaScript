@@ -72,3 +72,29 @@ job = "programmer";
 
 //Assignment: let, const and var
 //language = "English"; //TypeError assignment to constant variable
+
+//BASIC OPERATORS
+const now = 2023;
+const ageGil = now - 1996;
+const ageMike = now - 1994;
+console.log(ageGil, ageMike);
+console.log(ageGil * 2, ageMike / 10, 2 ** 3);
+//2 ** 3 means 2 to the power of 3
+console.log(firstName + " " + lastName);
+//theres a better way used to concatenate strings
+//called template strings but we will use operators for now
+
+//assignment operator '='
+let x = 10 + 5;
+x += 10;
+x *= 2;
+x++;
+x--;
+console.log(x); //50
+
+//comparison operators
+console.log(ageGil > ageMike); //false
+//>, <, >=, <=
+console.log(ageMike >= 29); // true
+const isFullAge = ageGil >= 28;
+console.log(isFullAge);
