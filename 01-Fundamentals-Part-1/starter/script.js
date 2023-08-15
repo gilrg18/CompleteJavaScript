@@ -46,3 +46,11 @@ console.log(typeof year); //"undefined"
 year = 2023;
 console.log(typeof year); //"number" (result of js dynamic typing)
 console.log(typeof null); //object (which is a bug, it should be null)
+
+//Assignment: Data Types
+let isIsland = false;
+let language;
+console.log(typeof isIsland); //"boolean"
+console.log(typeof population); //"number"
+console.log(typeof country); //"string"
+console.log(typeof language); //"undefined"
