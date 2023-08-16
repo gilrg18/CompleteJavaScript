@@ -116,3 +116,15 @@ const description =
   " people speak " +
   language;
 console.log(description);
+
+//OPERATOR PRECEDENCE
+console.log(now - 1996 > now - 1997); //true
+//all the math operators go before comparator operators
+
+let y, z;
+y = z = 25 - 10 - 5;
+console.log(y, z); //10 10
+
+//const avgAge = ageGil + ageMike / 2; //41.5
+const avgAge = (ageGil + ageMike) / 2; //28
+console.log(ageGil, ageMike, avgAge);
