@@ -213,3 +213,28 @@ console.log(n);
 let a = "1" - 1; // 0;
 a = a + "1"; //01
 console.log(a);
+
+//TRUTHY AND FALSY VALUES
+//Falsy: 0,'',undefined,null,NaN
+//Truthy: anything else
+//js always does type coercion to booleans
+console.log(Boolean(0)); //f
+console.log(Boolean(undefined)); //f
+console.log(Boolean("Gil")); //t
+console.log(Boolean({})); //t
+console.log(Boolean("")); //f
+
+const money = 0;
+
+if (money) {
+  console.log(`Don't spend it all 😊😊`);
+} else {
+  console.log(`Get a job 😡😡`);
+}
+
+let height;
+if (height) {
+  console.log(`yay height is defined ${height}`);
+} else {
+  console.log(`height is UNDEFINED`);
+}
