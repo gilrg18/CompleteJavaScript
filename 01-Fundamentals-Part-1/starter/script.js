@@ -249,15 +249,31 @@ console.log("18" === 18); //false
 console.log(18 == 18); //true
 console.log("18" == 18); //true (cause of type coercion)
 
-const favourite = Number(prompt("Number:"));
-console.log(favourite); //if it gets printed in white it means it is a string
-console.log(typeof favourite);
-if (favourite === 23) {
-  console.log("23 ggwp");
-} else if (favourite === 7) {
-  console.log("7 ggwp");
-} else {
-  console.log("any ggwp");
-}
+// const favourite = Number(prompt("Number:"));
+// console.log(favourite); //if it gets printed in white it means it is a string
+// console.log(typeof favourite);
+// if (favourite === 23) {
+//   console.log("23 ggwp");
+// } else if (favourite === 7) {
+//   console.log("7 ggwp");
+// } else {
+//   console.log("any ggwp");
+// }
 
-if (favourite !== 23) console.log("not 23");
+// if (favourite !== 23) console.log("not 23");
+
+//LOGICAL OPERATORS
+const hasDriversLicense = true;
+const hasGoodVision = true;
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+const shouldDrive = hasDriversLicense && hasGoodVision;
+const isTired = false;
+if (shouldDrive && !isTired) {
+  console.log("can drive");
+} else {
+  console.log("can not drive");
+}
