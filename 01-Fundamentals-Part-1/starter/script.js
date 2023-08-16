@@ -128,3 +128,32 @@ console.log(y, z); //10 10
 //const avgAge = ageGil + ageMike / 2; //41.5
 const avgAge = (ageGil + ageMike) / 2; //28
 console.log(ageGil, ageMike, avgAge);
+
+//STRINGS AND TEMPLATE LITERALS
+const firstName2 = "Gil";
+const job2 = "Dj";
+const birthYear2 = 1996;
+const year2 = 2023;
+
+const gil =
+  "I'm " +
+  firstName +
+  ", a " +
+  (year2 - birthYear2) +
+  " years old " +
+  job +
+  "!";
+console.log(gil);
+//you can write a string in a more 'normal' way using template literals:
+//so you can avoid having to type blank spaces
+const gilNew = `I'm ${firstName2} a ${year2 - birthYear2} years old ${job}!`;
+console.log(gilNew);
+console.log(`Just a regular string..`);
+console.log(
+  "String with \n\
+multiple \n\
+lines"
+);
+console.log(`String
+multiple
+lines`);
