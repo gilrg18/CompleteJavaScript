@@ -161,3 +161,25 @@ console.log(`String
 //Assignment: String and template literals
 const description2 = `${country} is in ${continent}, and its ${population} people speak ${language}`;
 console.log(description2);
+
+//Taking decisions: if / else Statements
+const age3 = 15;
+const isOldEnough = 18;
+
+if (age3 >= 18) {
+  //Windows + . for emojis
+  console.log(`Gil can start driving license 👍👍`);
+} else {
+  const yearsLeft = 18 - age3;
+  console.log(`Gil is yoo young. Wait another ${yearsLeft} years`);
+}
+
+const birthYear3 = 1996;
+let century;
+if (birthYear3 <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+//if you do not define century out of the if block this will throw an error
+console.log(century);
