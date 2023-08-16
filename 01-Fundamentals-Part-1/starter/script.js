@@ -151,9 +151,13 @@ console.log(gilNew);
 console.log(`Just a regular string..`);
 console.log(
   "String with \n\
-multiple \n\
-lines"
+  multiple \n\
+  lines"
 );
 console.log(`String
-multiple
-lines`);
+  multiple
+  lines`);
+
+//Assignment: String and template literals
+const description2 = `${country} is in ${continent}, and its ${population} people speak ${language}`;
+console.log(description2);
