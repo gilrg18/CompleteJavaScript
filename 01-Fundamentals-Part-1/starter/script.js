@@ -300,3 +300,16 @@ switch (day) {
     console.log("not a valid day");
     break;
 }
+
+//STATEMENTS AND EXPRESSIONS
+//expressions produce values
+3 + 4;
+1991;
+true && false && !false;
+//statements are full sentences that we want our program to perform
+if (23 > 10) {
+  const str = "23 is bigger";
+}
+
+//template literals only accept expressions, not statements
+console.log(`I'm ${2023 - 1996} years old`);
