@@ -238,3 +238,26 @@ if (height) {
 } else {
   console.log(`height is UNDEFINED`);
 }
+
+//EQUALITY OPERATORS: == VS ===
+//=== is STRICT cause it doesnt perform type coercion
+//only returns true when both values are exactly the same
+const age2 = 18;
+if (age2 === 18) console.log("adult");
+console.log(18 === 18); //true
+console.log("18" === 18); //false
+console.log(18 == 18); //true
+console.log("18" == 18); //true (cause of type coercion)
+
+const favourite = Number(prompt("Number:"));
+console.log(favourite); //if it gets printed in white it means it is a string
+console.log(typeof favourite);
+if (favourite === 23) {
+  console.log("23 ggwp");
+} else if (favourite === 7) {
+  console.log("7 ggwp");
+} else {
+  console.log("any ggwp");
+}
+
+if (favourite !== 23) console.log("not 23");
