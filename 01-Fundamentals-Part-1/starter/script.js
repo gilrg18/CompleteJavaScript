@@ -277,3 +277,26 @@ if (shouldDrive && !isTired) {
 } else {
   console.log("can not drive");
 }
+
+//THE SWITCH STATEMENT
+const day = "wednesday";
+
+switch (day) {
+  case "monday":
+    console.log("monday");
+    break;
+  case "tuesday":
+    console.log("tuesday");
+    break;
+  //2 cases 1 output
+  case "wednesday":
+  case "thursday":
+    console.log("wednesday and thursday");
+    break;
+  case "friday":
+    console.log("friday");
+    break;
+  default:
+    console.log("not a valid day");
+    break;
+}
