@@ -183,3 +183,33 @@ if (birthYear3 <= 2000) {
 }
 //if you do not define century out of the if block this will throw an error
 console.log(century);
+
+//TYPE CONVERSION AND COERCION
+//Conversion: manually convert from one type to another
+//Coercion: when js does it automatically for us
+//Type conversion:
+const inputYear = "1996";
+console.log(inputYear + 27); //199627
+console.log(Number(inputYear), inputYear); //1996 '1996'
+console.log(Number(inputYear) + 27); // 2023
+
+console.log(Number("Gil")); //NaN (not a number)
+console.log(typeof NaN); //number
+
+console.log(String(23), 23); //'23' 23;
+
+//Type coercion:
+console.log("I am " + 23 + " years old"); //23 gets converted to a string automatically with the + operator
+
+console.log("23" - "10" - 3); // 10
+console.log("23" + "10" + 3); //23103
+console.log("23" * "2"); //46
+console.log("23" / "2"); //11.5
+
+let n = "1" + 1; //11
+n = n - 1; //10
+console.log(n);
+
+let a = "1" - 1; // 0;
+a = a + "1"; //01
+console.log(a);
