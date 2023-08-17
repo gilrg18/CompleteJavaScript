@@ -37,6 +37,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       document.querySelector('.message').textContent = '💥 You Lost! ';
       document.querySelector('.score').textContent = 0;
+      document.querySelector('.check').disabled = true;
     }
   } else if (guess < secretNumber) {
     if (score > 1) {
@@ -46,6 +47,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       document.querySelector('.message').textContent = '💥 You Lost! ';
       document.querySelector('.score').textContent = 0;
+      document.querySelector('.check').disabled = true;
     }
   }
 });
