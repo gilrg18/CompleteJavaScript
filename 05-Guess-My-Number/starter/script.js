@@ -13,7 +13,7 @@ console.log(`value: ${document.querySelector('.guess').value}`);
 */
 
 //IMPLEMENTING THE GAME LOGIC
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 console.log(`Secret Number: ${secretNumber}`);
 //document.querySelector('.number').textContent = secretNumber;
@@ -57,4 +57,17 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('body').style.backgroundColor = 'red';
     }
   }
+});
+
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  document.querySelector('.score').textContent = score;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  console.log(`Secret Number: ${secretNumber}`);
+  document.querySelector('.guess').value = '';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.check').disabled = false;
+  document.querySelector('.message').textContent = 'Start guessing... ';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
 });
