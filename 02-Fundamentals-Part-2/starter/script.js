@@ -51,3 +51,18 @@ console.log(age1, age2);
 
 //you can call function declarations BEFORE they are declared (hoisting)
 //you cant do that with function expressions
+
+//ARROW FUNCTIONS
+//This is also a function expression
+const calcAge3 = (birthYear) => 2023 - birthYear;
+const age3 = calcAge3(2000);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2023 - birthYear;
+  const retirement = 65 - age;
+  return `${firstName} retires in ${retirement} years`;
+};
+
+console.log(yearsUntilRetirement(1996, "Gil"));
+console.log(yearsUntilRetirement(1994, "Maik"));
