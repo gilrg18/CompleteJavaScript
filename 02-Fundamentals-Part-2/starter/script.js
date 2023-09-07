@@ -58,14 +58,14 @@ const calcAge3 = (birthYear) => 2023 - birthYear;
 const age3 = calcAge3(2000);
 console.log(age3);
 
-const yearsUntilRetirement = (birthYear, firstName) => {
-  const age = 2023 - birthYear;
-  const retirement = 65 - age;
-  return `${firstName} retires in ${retirement} years`;
-};
+// const yearsUntilRetirement = (birthYear, firstName) => {
+//   const age = 2023 - birthYear;
+//   const retirement = 65 - age;
+//   return `${firstName} retires in ${retirement} years`;
+// };
 
-console.log(yearsUntilRetirement(1996, "Gil"));
-console.log(yearsUntilRetirement(1994, "Maik"));
+// console.log(yearsUntilRetirement(1996, "Gil"));
+// console.log(yearsUntilRetirement(1994, "Maik"));
 
 //FUNCTIONS CALLING OTHER FUNCTIONS
 function cutFruitPieces(fruit) {
@@ -81,3 +81,27 @@ function fruitProcessor(apples, oranges) {
 }
 
 console.log(fruitProcessor(2, 3));
+
+//REVIEWING FUNCTIONS
+const calcAge = function (birthYear) {
+  return 2023 - birthYear;
+};
+const yearsUntilRetirement = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = 65 - age;
+  if (retirement > 0) {
+    return retirement;
+  }
+  return -1;
+};
+
+console.log(yearsUntilRetirement(1996, "Gil"));
+console.log(yearsUntilRetirement(1950, "Maik"));
+//function declaration function calcAge(asd){...}
+//can be used before its declared
+
+//function expression const calcage = function (asd){...}
+//a function VALUE stored in a variable
+
+//Arrow function const calcage = asd => ...
+//great for one line functions. has no THIS keyword (more later..)
