@@ -18,11 +18,11 @@ function logger() {
 //calling/running/invoking function
 logger();
 
-function fruitProcessor(apples, oranges) {
-  console.log(apples, oranges);
-  const juice = `Juice with ${apples} apples and ${oranges} oranges`;
-  return juice;
-}
+// function fruitProcessor(apples, oranges) {
+//   console.log(apples, oranges);
+//   const juice = `Juice with ${apples} apples and ${oranges} oranges`;
+//   return juice;
+// }
 
 console.log(fruitProcessor(1, 2));
 let appleJuice = fruitProcessor(5, 0);
@@ -66,3 +66,18 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 
 console.log(yearsUntilRetirement(1996, "Gil"));
 console.log(yearsUntilRetirement(1994, "Maik"));
+
+//FUNCTIONS CALLING OTHER FUNCTIONS
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+  //console.log(apples, oranges);
+  const juice = `Juice with ${applePieces} apple pieces and ${orangePieces} orange pieces`;
+  return juice;
+}
+
+console.log(fruitProcessor(2, 3));
