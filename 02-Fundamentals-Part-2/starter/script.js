@@ -190,3 +190,12 @@ for (let i = 0; i < bills.length; i++) {
   totals.push(bills[i] + tips[i]);
 }
 console.log(bills, tips, totals);
+
+//INTRODUCTION TO OBJECTS (Data Structure)
+const gilObject = {
+  //key(property): value pairs
+  //the order of these properties does not matter like in arrays
+  firstName: "Gil",
+  lastName: "Rangel",
+  age: 2023 - 1996,
+};
