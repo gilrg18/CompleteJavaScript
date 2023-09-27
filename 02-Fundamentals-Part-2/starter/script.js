@@ -198,4 +198,38 @@ const gilObject = {
   firstName: "Gil",
   lastName: "Rangel",
   age: 2023 - 1996,
+  job: "programmer",
+  friends: ["hek", "em", "pac"],
 };
+
+//DOT VS. BRACKET NOTATION
+console.log(gilObject); //properties get printed alphabetically
+console.log(gilObject.lastName);
+console.log(gilObject["lastName"]);
+//the difference between .lastName and ["lastName"] is that
+//we can use an expression (something that produces a value) inside the brackets
+const nameKey = "Name";
+console.log(gilObject["first" + nameKey]);
+console.log(gilObject["last" + nameKey]);
+
+// const interestedIn = prompt(
+//   "What do you want to know about Gil? Choose between firstName, lastName, age, job, and friends"
+// );
+
+//dot notation wouldnt work here : gilObject.interestedIn
+//console.log(gilObject[interestedIn]);
+//prints undefined when trying to access a property that does not exist
+// if (gilObject[interestedIn]) {
+//   console.log(gilObject[interestedIn]);
+// } else {
+//   console.log(`${interestedIn} doesn't exist`);
+// }
+
+//Add new properties
+gilObject.location = "Mx";
+gilObject["twitter"] = "giltwitter";
+console.log(gilObject);
+
+let msg = `${gilObject.firstName} has ${gilObject.friends.length} friends, and his best friend is called ${gilObject.friends[0]}`;
+
+console.log(msg);
