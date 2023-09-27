@@ -308,3 +308,34 @@ if (markBMI > johnBMI) {
 for (let rep = 1; rep <= 10; rep++) {
   console.log(`Lifting weights repetition ${rep} 💪`);
 }
+
+//LOOPING ARRAYS, BREAKING AND CONTINUING
+const gilArray = ["Gil", "Rangel", 27, "programmer", ["hek", "shoc", "em"]];
+const types = [];
+
+for (let i = 0; i < gilArray.length; i++) {
+  //only strings
+  if (typeof gilArray[i] != "string") continue;
+  //continue skips the loop
+  console.log(gilArray[i], typeof gilArray[i]);
+
+  types.push(typeof gilArray[i]);
+}
+
+console.log(types);
+
+const ageArray = [];
+
+for (let i = 0; i < yearsArray.length; i++) {
+  ageArray.push(2023 - yearsArray[i]);
+}
+console.log(ageArray);
+
+for (let i = 0; i < gilArray.length; i++) {
+  //if its a number, get out of the loop
+  if (typeof gilArray[i] == "number") break;
+  //break ends the whole for loop
+  console.log(gilArray[i], typeof gilArray[i]);
+
+  types.push(typeof gilArray[i]);
+}
