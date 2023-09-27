@@ -339,3 +339,15 @@ for (let i = 0; i < gilArray.length; i++) {
 
   types.push(typeof gilArray[i]);
 }
+
+//LOOPING BACKWARDS AND LOOPS IN LOOPS
+for (let i = gilArray.length - 1; i >= 0; i--) {
+  console.log(i, gilArray[i]);
+}
+
+for (let exercise = 1; exercise <= 3; exercise++) {
+  console.log(`----- Exercise ${exercise} -----`);
+  for (let rep = 1; rep <= 5; rep++) {
+    console.log(`Repetition ${rep} 💪`);
+  }
+}
