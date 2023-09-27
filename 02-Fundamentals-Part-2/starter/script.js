@@ -105,3 +105,41 @@ console.log(yearsUntilRetirement(1950, "Maik"));
 
 //Arrow function const calcage = asd => ...
 //great for one line functions. has no THIS keyword (more later..)
+
+//INTRODUCTION TO ARRAY DATA STRUCTURE
+const friend1 = "Mike";
+const friend2 = "Steven";
+const friend3 = "Pirer";
+
+const friends = ["Mike", "Steven", "Pirer"];
+console.log(friends);
+
+const years = new Array(1991, 1992, 1993, 1994);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+//Only constant primitive values are immutable
+//An ARRAY is not a primitive value so we can mutate it
+friends[2] = "Jay";
+console.log(friends);
+//we cannot replace the entire array:
+//friends = ['gil','mike']; //error assignment to constant variable
+const lastName = "Rogel";
+const gil = ["Gil", lastName, 2023 - 1996, "Programmer", friends];
+
+console.log(gil);
+
+const yearsArray = [1990, 1967, 2002, 2010, 2018];
+
+const ageOne = calcAge(yearsArray[0]);
+const ageTwo = calcAge(yearsArray[1]);
+const ageThree = calcAge(yearsArray[2]);
+
+console.log(ageOne, ageTwo, ageThree);
+//arrays accept expressions (an expression is something that produces a value)
+const ages = [calcAge(yearsArray[0]), calcAge(yearsArray[1])];
+console.log(ages);
