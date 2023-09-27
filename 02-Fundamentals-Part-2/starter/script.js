@@ -143,3 +143,33 @@ console.log(ageOne, ageTwo, ageThree);
 //arrays accept expressions (an expression is something that produces a value)
 const ages = [calcAge(yearsArray[0]), calcAge(yearsArray[1])];
 console.log(ages);
+
+//BASIC ARRAY OPERATIONS (METHODS);
+//Add elements
+friends.push("jimmy"); //pushes value to the end of the array
+//push() returns the length of the new array.
+console.log(friends);
+
+friends.unshift("hect"); //pushes value to the beggining of the array
+console.log(friends);
+
+//Remove elements
+let popped = friends.pop(); //Remove and returns the last element
+console.log(popped);
+console.log(friends);
+
+let shifted = friends.shift(); //removes and returns the first element
+console.log(shifted);
+console.log(friends);
+
+//Index of an element (returns -1 if it doesnt exist)
+console.log(friends.indexOf("Steven"));
+
+//Is the element in the array?
+console.log(friends.includes("Steven")); //true
+console.log(friends.includes("Gil")); //false
+
+//includes() Checks with strict equality
+friends.push(23);
+console.log(friends.includes("23")); //false
+console.log(friends.includes(23)); //true
