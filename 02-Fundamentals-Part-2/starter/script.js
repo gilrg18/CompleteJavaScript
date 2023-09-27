@@ -4,7 +4,7 @@ let hasDriversLicense = false;
 const passTest = true;
 
 //if we dont use strict mode hasDriverLicense will not throw an error
-//and just fail silently
+//and just fail silently (hasDriverLicense =! hasDriversLicense)
 if (passTest) hasDriversLicense = true;
 if (hasDriversLicense) console.log("I can drive");
 
