@@ -305,9 +305,9 @@ if (markBMI > johnBMI) {
 }
 
 //ITERATION: THE FOR LOOP
-for (let rep = 1; rep <= 10; rep++) {
-  console.log(`Lifting weights repetition ${rep} 💪`);
-}
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep} 💪`);
+// }
 
 //LOOPING ARRAYS, BREAKING AND CONTINUING
 const gilArray = ["Gil", "Rangel", 27, "programmer", ["hek", "shoc", "em"]];
@@ -349,5 +349,31 @@ for (let exercise = 1; exercise <= 3; exercise++) {
   console.log(`----- Exercise ${exercise} -----`);
   for (let rep = 1; rep <= 5; rep++) {
     console.log(`Repetition ${rep} 💪`);
+  }
+}
+
+//THE WHILE LOOP
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 💪`);
+}
+
+let rep = 1;
+while (rep <= 10) {
+  console.log(`Repetition ${rep} 💪`);
+  rep++;
+}
+
+//While loop does not really depend on any counter variable
+//So whenever you dont need a counter (you dont know the number of iterations the loop will have)
+//you can use the while loop
+//For example when we want to loop over an array
+//we already know how many elements that array has
+//so we use the for loop instead to loop over an array 👍
+let dice = Math.trunc(Math.random() * 6) + 1;
+while (dice !== 6) {
+  console.log(`Dice ${dice} 🎲`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) {
+    console.log("Out of the loop");
   }
 }
