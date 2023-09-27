@@ -377,3 +377,29 @@ while (dice !== 6) {
     console.log("Out of the loop");
   }
 }
+
+//Challenge - loops
+const calcTip2 = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+/* Write your code below. Good luc */
+const bills2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips2 = [];
+const totals2 = [];
+
+for (let i = 0; i < bills2.length; i++) {
+  tips2.push(calcTip2(bills2[i]));
+  totals2.push(bills2[i] + tips2[i]);
+}
+console.log(bills2, tips2, totals2);
+
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+};
+
+console.log(calcAverage(totals2));
