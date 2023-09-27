@@ -173,3 +173,20 @@ console.log(friends.includes("Gil")); //false
 friends.push(23);
 console.log(friends.includes("23")); //false
 console.log(friends.includes(23)); //true
+
+//CHALLENGE
+const calcTip = function (bill) {
+  return 50 <= bill && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+const bills = [125, 555, 44];
+const tips = [];
+for (let i = 0; i < bills.length; i++) {
+  tips.push(calcTip(bills[i]));
+}
+
+const totals = [];
+for (let i = 0; i < bills.length; i++) {
+  totals.push(bills[i] + tips[i]);
+}
+console.log(bills, tips, totals);
