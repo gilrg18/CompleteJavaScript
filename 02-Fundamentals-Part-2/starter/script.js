@@ -197,9 +197,34 @@ const gilObject = {
   //the order of these properties does not matter like in arrays
   firstName: "Gil",
   lastName: "Rangel",
-  age: 2023 - 1996,
+  birthYear: 1996,
   job: "programmer",
+  //this is a property that holds an array value
   friends: ["hek", "em", "pac"],
+  //this is a property that holds a boolean value
+  hasDriversLicense: true,
+  //Objects functions are called methods
+  //must use expressions:
+  //this is a property that holds a function value
+  // calcAge: function () {
+  //   console.log(this);
+  //   return 2023 - this.birthYear;
+  // },
+  calcAge: function () {
+    this.age = 2023 - this.birthYear;
+    return this.age;
+  },
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    } and he has ${
+      this.hasDriversLicense == true ? "a" : "no"
+    } driver's license`;
+  },
+  //cannot use declarations:
+  // function calcAge(birthYear){
+  //   return 2023-birthYear;
+  // }
 };
 
 //DOT VS. BRACKET NOTATION
@@ -233,3 +258,13 @@ console.log(gilObject);
 let msg = `${gilObject.firstName} has ${gilObject.friends.length} friends, and his best friend is called ${gilObject.friends[0]}`;
 
 console.log(msg);
+
+//OBJECT METHODS
+console.log(gilObject.calcAge());
+console.log(gilObject["calcAge"]());
+
+console.log(gilObject.age);
+console.log(gilObject.age);
+console.log(gilObject.age);
+
+console.log(gilObject.getSummary());
