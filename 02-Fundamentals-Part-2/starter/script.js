@@ -413,4 +413,5 @@ const y = {
   c: 3,
 };
 console.table(y);
+debugger; //the browser will open the debugger tools
 console.log(y);
