@@ -403,3 +403,14 @@ const calcAverage = function (arr) {
 };
 
 console.log(calcAverage(totals2));
+
+const x = [0, 1, 2, 3, 4, 5];
+console.table(x);
+
+const y = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+console.table(y);
+console.log(y);
