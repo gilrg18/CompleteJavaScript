@@ -1,14 +1,32 @@
+/* Universal selector */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   min-height: 100%;
-  height: 100%;
 }
 body {
   background-image: linear-gradient(lightblue, white);
   font-family: "Courier New", Courier, monospace;
+  padding: 50px;
+  height: 100%;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 40px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 20px;
 }
 
 .first {
@@ -16,12 +34,32 @@ h1 {
 }
 
 #your-name {
+  margin-top: 20px;
   background-color: lightblue;
   border: 5px solid rgb(129, 200, 223);
-  padding-left: 20px;
-  padding-bottom: 20px;
+  width: 400px;
+  padding: 20px;
+  margin-left: auto;
+  /* margin-right: auto; */
 }
 
 #course-image {
   width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+input,
+button {
+  padding: 10px;
+  font-size: 15px;
+}
+
+a {
+  background-color: yellow;
+}
+
+#your-name h2 {
+  color: rgb(255, 255, 255);
 }
