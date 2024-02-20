@@ -68,9 +68,9 @@ var me = 'Gil';
 let job = 'Programmer';
 const year = 1996;
 
-console.log(me === window.me); //true
-console.log(job === window.job); //false
-console.log(year === window.year); //false
+//console.log(me === window.me); //true
+//console.log(job === window.job); //false
+//console.log(year === window.year); //false
 
 console.log(addDeclaration(2,3)); //5
 //console.log(addExpression(2,3)); //TDZ - cannot access before initialization
@@ -100,3 +100,46 @@ var numProducts = 10;
 function deleteShoppingCart(){
   console.log('All products deleted!');
 } 
+
+
+//THIS KEYWORD
+console.log(this); //window
+
+const calc = function(birthYear){
+  console.log(2024-birthYear);
+  console.log(this); //undefined in strict mode. normal mode would be the window object
+}
+
+calc(1996);
+
+const calcArrow = (birthYear) => {
+  console.log(2024-birthYear);
+  console.log(this); //window, arrow function uses the "lexical this" which is the this keyword of the
+  //parent scope. Arrow functions dont have a this keyword.
+}
+
+calcArrow(1996);
+
+const gil = {
+  year:1996,
+  calcAge: function() {
+    //the this keyword will be the object that is calling the method
+    console.log(this); 
+    console.log(2024 - this.year); //28
+  }
+};
+//the this keyword will be the object that is calling the method
+gil.calcAge(); //{year: 1996, calcAge: f}
+
+
+const matilda = {
+  year:2017,
+};
+
+//method borrowing
+matilda.calcAge = gil.calcAge;
+matilda.calcAge(); //7 (2024-2017) the this keyword will always point to the object that is calling the method
+//{year: 2017, calcAge: f}
+
+const f = gil.calcAge;
+f(); //this keyword is undefined -> undefined.year
