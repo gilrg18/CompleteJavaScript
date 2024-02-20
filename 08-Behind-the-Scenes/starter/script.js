@@ -33,3 +33,29 @@ function calcAge(birthYear){
 const firstName = 'Gil';
 calcAge(1996);
 //console.log(age); //reference error
+
+
+//WHY HOISTING? -> Using functions before atual declaration, essential for some programming
+//techniques such as mutual recursion
+//                          HOISTED   INITIAL VALUE         SCOPE
+//Function declarations       YES     Actual function       BLOCK
+//Var variables               YES     undefined             Function
+//let and const variables     NO      <uninitialized>, TDZ  Block   TDZ = Temporal Dead Zone
+//func.expressions and arrows     DEPENDS IF WE USE LET, VAR, CONST
+
+//TEMPORAL DEAD ZONE
+//Used to prevent bugs.. undefined variables can cause bugs whereas 
+//uninitialized variables catch errors quickly
+//Accesing variables before declaration is a bad practice and should be avoided.
+//const should never be reasigned, so the TDZ is created to avoid creating undefined 
+//variables and reassigning them later on.
+const myName = 'Gil';
+if(myName ==='Gil'){
+  //<TEMPORAL DEAD ZONE FOR job VARIABLE bc its not initialized>
+  console.log(`Gil is a ${job}`); 
+  const age = 2024 - 1996; 
+  console.log(age);
+  //</TEMPORAL DEAD ZONE FOR job VARIABLE bc its not initialized >
+  const job = 'programmer';
+  console.log(x);
+}
