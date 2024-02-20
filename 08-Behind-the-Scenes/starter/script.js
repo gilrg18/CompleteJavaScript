@@ -52,10 +52,51 @@ calcAge(1996);
 const myName = 'Gil';
 if(myName ==='Gil'){
   //<TEMPORAL DEAD ZONE FOR job VARIABLE bc its not initialized>
-  console.log(`Gil is a ${job}`); 
+  //console.log(`Gil is a ${job}`); 
   const age = 2024 - 1996; 
   console.log(age);
   //</TEMPORAL DEAD ZONE FOR job VARIABLE bc its not initialized >
   const job = 'programmer';
-  console.log(x);
+  //console.log(x);
 }
+
+console.log(me); //undefined because var is hoisted before initialization
+//console.log(job); //TDZ - cannot access before initialization
+//console.log(year); //TDZ - cannot access before initialization
+//var adds the variable to the window object, let and const do not.
+var me = 'Gil';
+let job = 'Programmer';
+const year = 1996;
+
+console.log(me === window.me); //true
+console.log(job === window.job); //false
+console.log(year === window.year); //false
+
+console.log(addDeclaration(2,3)); //5
+//console.log(addExpression(2,3)); //TDZ - cannot access before initialization
+//console.log(addArrow(2,3));//TDZ - cannot access before initialization
+//If you declare expresison and arrow with VAR its gonna return a TYPEERROR - x is not a function
+//because the functions will be set as UNDEFINED because of hoisting (undefined(2,3))
+//hello(); //hello is not a function / undefined
+function addDeclaration(a,b){
+  return a + b;
+}
+
+const addExpression = function(a,b){
+  return a + b;
+}
+
+const addArrow = (a,b) => a+b;
+
+var hello = function(){
+  console.log('hi');
+}
+
+//this will delete the shopping cart because numProducts is undefined cause of hoisting.
+if(!numProducts) deleteShoppingCart()
+
+var numProducts = 10;
+
+function deleteShoppingCart(){
+  console.log('All products deleted!');
+} 
