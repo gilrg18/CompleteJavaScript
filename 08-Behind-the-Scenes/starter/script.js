@@ -142,4 +142,4 @@ matilda.calcAge(); //7 (2024-2017) the this keyword will always point to the obj
 //{year: 2017, calcAge: f}
 
 const f = gil.calcAge;
-f(); //this keyword is undefined -> undefined.year
+//f(); //this keyword is undefined -> undefined.year
