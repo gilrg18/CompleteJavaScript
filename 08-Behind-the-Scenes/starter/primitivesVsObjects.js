@@ -1,3 +1,4 @@
+'use strict';
 let age = 30;
 let oldAge = age;
 age = 31;
@@ -39,3 +40,55 @@ console.log('Me:', me);
 //reference to the object (D30F), we just changed the value in the heap.
 
 //Variables declared with const are only immutable for primitive values, not reference values
+
+
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davies'
+console.log(lastName, oldLastName);
+
+//Reference types
+const jessica = {
+    firstName: 'Jessica',
+    lastName: 'Williams',
+    age: 27,
+};
+//we are just copying the reference, so its not exactly a copy of the object
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis'; //both get updated because we are updated the value in the heap which is referenced in the stack
+console.log('BeforeMarriage:', jessica);
+console.log('AfterMarriage:', marriedJessica);
+
+//marriedJessica = {}// this doesnt work because its creating a new address in the heap which is the
+//value in the stack, so you are updating the value in the stack which is not possible for constants
+
+//Copying objects
+const jessica2 = {
+    firstName: 'Jessica',
+    lastName: 'Williams',
+    age: 27,
+};
+
+const jessicaCopy = Object.assign({},jessica2);//this acually creates a new object that is a copy of jessica2 (but its a shallow copy(copia poco profunda))
+jessicaCopy.lastName = 'David';
+console.log('Before marriage:', jessica2);
+console.log('After marriage:', jessicaCopy);
+
+// Object.assign only creates a copy on the first level, a shallow copy. 
+// An example of a copy on first level:
+const gil = {
+    firstName: 'Gil',
+    lastName: 'Rogel',
+    family: ['Mike','Lala']
+};
+
+const gilCopy = Object.assign({},gil);
+gilCopy.lastName = 'Garcia';
+
+gilCopy.family.push('Mom') //This will affect the family array object in bot gil and gilcopy becasue
+gilCopy.family.push('Dad')//the copy was made on the first level,in other words, a shallow copy
+
+console.log('Original:', gil);
+console.log('Copia:', gilCopy);
+
+//Creating a deep clone is beyond the scope of this section. To be seen in a future section...
