@@ -22,6 +22,10 @@ const restaurant = {
     and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   },
 
+  orderPasta : function(ing1,ing2,ing3){
+    console.log(`HERES YOUR PIZZA with ${ing1}, ${ing2}, ${ing3}.`);
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -124,3 +128,48 @@ restaurant.orderDelivery({
   address: 'Fake Address 123',
   starterIndex: 1,
 })
+
+//THE SPREAD OPERATOR (...)
+const array = [7,8,9];
+const badNewArray = [1,2,array[0],array[1],array[2]]
+console.log(badNewArray);
+
+const goodNewArray = [1,2, ...array];
+console.log(goodNewArray);
+console.log(...goodNewArray);
+console.log(1,2,7,8,9);
+
+const newMenu =  [...restaurant.mainMenu, 'Gnocci']
+console.log(newMenu);
+
+//Copy array
+const mainMenuCopy = [...restaurant.mainMenu]
+//Join 2 arrays
+const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu]
+console.log(menu2);
+
+//Spread operator works on all Iterables => arrays, strings, maps, sets.. (NOT OBJECTS)
+const str = 'Gil';
+const letters = [...str, ' ', 'R.'];
+console.log(letters);
+console.log(...str);
+//Multiple values separated by a comma are usually expected when we pass arguments
+//into a function or when we build a new array
+//console.log(`${...str} Rogel`); //this doesnt work
+
+// const ingredients = [prompt('Let\'s make pasta! Ingredient 1?'),
+// prompt('Ingredient 2?'),
+// prompt('Ingredient 3')];
+const ingredients = ['pepperoni','cheese','bacoon']
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients);
+
+//Since ES2018 the spread operator also works on objects even tho theyre not iterablesf
+const newRestaurant = {foundedIn: 1996, ...restaurant, founder: 'Gilbertini'}
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'SiuR7' // this doesnt overwrite the original object's name (restaurant.name)
+console.log(restaurant.name);
+console.log(restaurantCopy.name);
