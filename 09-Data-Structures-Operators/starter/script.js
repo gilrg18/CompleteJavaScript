@@ -142,7 +142,12 @@ console.log(1,2,7,8,9);
 const newMenu =  [...restaurant.mainMenu, 'Gnocci']
 console.log(newMenu);
 
-//Copy array
+//Copy array (shallow copy)
+/*
+"Shallow copy means that it will copy only the top values inside an array. 
+So if you had an object as an value in your array, that object will be the same object in both arrays. 
+It will copy just it's reference."
+*/
 const mainMenuCopy = [...restaurant.mainMenu]
 //Join 2 arrays
 const menu2 = [...restaurant.starterMenu, ...restaurant.mainMenu]
