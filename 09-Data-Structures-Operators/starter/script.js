@@ -23,7 +23,12 @@ const restaurant = {
   },
 
   orderPasta : function(ing1,ing2,ing3){
-    console.log(`HERES YOUR PIZZA with ${ing1}, ${ing2}, ${ing3}.`);
+    console.log(`HERES YOUR PASTA with ${ing1}, ${ing2}, ${ing3}.`);
+  },
+
+  orderPizza: function(mainIngredient,...otherIngredients){
+    console.log(mainIngredient);
+    console.log(otherIngredients);
   },
 
   openingHours: {
@@ -178,3 +183,46 @@ const restaurantCopy = {...restaurant};
 restaurantCopy.name = 'SiuR7' // this doesnt overwrite the original object's name (restaurant.name)
 console.log(restaurant.name);
 console.log(restaurantCopy.name);
+
+
+//REST PATTERN AND PARAMETERS
+//SPREAD - UNPACK ELEMENTS FROM AN ARRAY
+//REST - PACK ELEMENTS INTO AN ARRAY
+
+//SPREAD IS ON THE RIGHT SIDE OF THE ASSIGNMENT OPERATOR =
+const ar = [1, 2, ...[3,4,5]]
+//REST - collects the rest of the elements
+//rest element must be the last element [a,b,...others, c] this cannot be done
+//1) Destructuring use case
+const [aaa,bbb, ...others] = [1,2,3,4,5]
+console.log(aaa,bbb,others);
+
+const [pizza, ,rissoto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu]
+console.log(pizza, rissoto, otherFood);
+
+//Objects
+const {sat, ...weekdays} = restaurant.openingHours;
+console.log(sat, weekdays)
+
+//2) Functions use case
+//this is better because we can pass values add(1,2,3,5) or an array add(...[1,2,3,4])
+const add = function(...numbers){
+  let sum = 0;
+  for(let i = 0; i<numbers.length;i++){
+    sum+=numbers[i]
+  }
+  console.log(numbers);
+  console.log(sum);
+  return sum;
+}
+
+add(2,3)
+add(5,3,7,2)
+add(8,2,5,3,2,1,4)
+
+const xx = [23,5,7];
+add(...xx);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives','spinach')
+
+restaurant.orderPizza('pepperoni')
