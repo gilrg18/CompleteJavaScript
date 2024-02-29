@@ -16,6 +16,12 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
+  //Destructuring parameter objects
+  orderDelivery: function({starterIndex =1, mainIndex =0, time='20:00', address}){
+    console.log(`Order received! ${this.starterMenu[starterIndex]}
+    and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -78,3 +84,43 @@ console.log(i, j ,k);
 // Default values - useful when destructuring unknown quantity of values
 const [p=1,q=1,r=1] = [8,9]
 console.log(p,q,r);
+
+
+//DESTRUCTURING OBJECTS
+const {name, openingHours, categories} = restaurant;
+console.log(name,openingHours,categories);
+
+//property name: new created variable name
+const {name: restaurantName, openingHours: hours, categories: tags} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//default values
+console.log(restaurant.menu);
+const {menu = [], starterMenu: starters = []} = restaurant
+console.log(menu, starters);
+
+//Mutating variables
+let aa = 111;
+let bb = 999;
+const obj = {aa: 23, bb:7, c:14 };
+({aa, bb} = obj); 
+//unexpected token error '='
+//parenthesis because when we start a line with { javascript expects a code block
+console.log(aa,bb);
+
+//Nested objects
+//{propertyName: {propertyName: newvarname} }
+const { fri: {open: o, close: cl}} = openingHours
+console.log(o, cl);
+
+restaurant.orderDelivery({
+  time:'22:30',
+  address: 'Fake Address 123',
+  mainIndex: 2,
+  starterIndex: 2,
+})
+
+restaurant.orderDelivery({
+  address: 'Fake Address 123',
+  starterIndex: 1,
+})
