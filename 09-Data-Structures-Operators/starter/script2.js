@@ -15,7 +15,7 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  [`day-${2+4}`]: {
+  [weekdays[5]]: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -151,3 +151,34 @@ for (const [i, item] of menu.entries()) {
 console.log([...menu.entries()]);
 
 //ENHANCED OBJECT LITERALS
+
+
+//OPTIONAL CHAINING (?.)
+if(restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+if(restaurant.openingHours.thu) console.log(restaurant.openingHours.thu.open);
+
+//to check if something exists.. in this case mon
+//undefined gets returned so it resolves errors and bugs
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+// console.log(restaurant.openingHours.mon.open);//error cannot read properties of undefined
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for(const day of days){
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+  
+}
+
+//methods
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+console.log(restaurant.orderSiu?.(0,1) ?? 'Method does not exist');
+
+//arrays
+const user = [];
+const users = [
+  {name: 'Gil', email:'siu@siu.siu'}
+];
+console.log(user[0]?.name ?? 'User list is empty');
+console.log(users[0]?.name ?? 'User doesnt exist');
+console.log(users[1]?.name ?? 'User doesn\'t exist');
