@@ -123,3 +123,20 @@ rest2.owner &&= '<ANONYMOUS>';
 
 console.log(rest1);
 console.log(rest2);
+
+
+//LOOPING ARRAYS: THE FOR-OF LOOP
+const menu = [...restaurant.starterMenu,...restaurant.mainMenu]
+for (const item of menu) {
+  console.log(item);
+}
+
+//get the index 
+for(const item of menu.entries()){
+  console.log(`${item[0]+1}: ${item[1]}`);
+}
+//index using destructuring
+for(const [i, item] of menu.entries()){
+  console.log(`${i+1}: ${item}`);
+}
+console.log([...menu.entries()]);
