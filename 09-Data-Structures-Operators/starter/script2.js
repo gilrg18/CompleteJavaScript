@@ -3,6 +3,24 @@
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+//Compute property names
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  //Compute property names [weekdays[3]] which is thu
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [`day-${2+4}`]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+console.log(openingHours);
 
 // Data needed for first part of the section
 const restaurant = {
@@ -11,41 +29,37 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  //before ES6
+  //openingHours: openingHours,
+  //ES6 Enhanced object literals:
+  openingHours,
 
-  order: function(starterIndex, mainIndex){
+  //before ES6
+  // order: function(starterIndex, mainIndex){
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
+
+  //ES6
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
   //Destructuring parameter objects
-  orderDelivery: function({starterIndex =1, mainIndex =0, time='20:00', address}){
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(`Order received! ${this.starterMenu[starterIndex]}
     and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   },
 
-  orderPasta : function(ing1,ing2,ing3){
+  orderPasta(ing1, ing2, ing3) {
     console.log(`HERES YOUR PASTA with ${ing1}, ${ing2}, ${ing3}.`);
   },
 
-  orderPizza: function(mainIngredient,...otherIngredients){
+  orderPizza(mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
 };
+
 console.log('----OR----');
 //SHORT CIRCUITING (&& and ||)
 //if the first value is a truthy value it wont even look at the second value
@@ -54,31 +68,28 @@ console.log('gil' || 3);
 console.log('' || 'gil');
 console.log(true || 0);
 console.log(undefined || null); //null even tho null is also a falsy value
-console.log(undefined || 0 || ''|| 'Hello' || 23 || null); //Hello because its the first truthy value
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); //Hello because its the first truthy value
 
- //cero is falsy so carefull with this
+//cero is falsy so carefull with this
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests1); //if restaurant.numGuests is undefined, guests1 will be 10
-
-
 
 console.log('----AND----');
 console.log(0 && 'Gil'); //shortcircuits when the first value is false, 0
 console.log(7 && 'Gil'); //'Gil'
-console.log('Hello' && 23 && null && 'gil');//shortcircuits when the first value is false
+console.log('Hello' && 23 && null && 'gil'); //shortcircuits when the first value is false
 //shortcircuit mean that it doesnt even look at the rest of the operation
 
 //if method exists, execute it (we are pretending we dont know it exists)
-if(restaurant.orderPizza){
-    restaurant.orderPizza('mushrooms', 'spinach')
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
 }
 
 //if the first value is truthy the second one will execute
-restaurant.orderPizza && restaurant.orderPizza('mushroom','pp','siu')
-
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'pp', 'siu');
 
 //THE NULLISH CUALESCING OPERATOR (??)
-restaurant.numGuests = 0
+restaurant.numGuests = 0;
 const guestss2 = restaurant.numGuests || 10;
 //The real amount is 0 but it takes 10 because 0 is falsy.. the cualescing operator fixes this
 console.log(guestss2);
@@ -87,14 +98,13 @@ console.log(guestss2);
 const correctGuest = restaurant.numGuests ?? 10;
 console.log(correctGuest);
 
-
 //LOGICAL ASSIGNMENT OPERATORS
-const rest1 ={
+const rest1 = {
   name: 'Capri',
   // numGuests: 20,
   numGuests: 0,
 };
-const rest2 ={
+const rest2 = {
   name: 'La Piazza',
   owner: 'Giovanni Giorgio',
 };
@@ -111,7 +121,7 @@ rest1.numGuests ??= 10; //if numGuests is 0, it will keep that value
 rest2.numGuests ??= 10;
 
 //rest1.owner = rest1.owner && '<ANONYMOUS>'; //Falsy && 'ANONYMOUS' = undefined
-//this old syntax causes javascript to create the owner property with the value undefined if 
+//this old syntax causes javascript to create the owner property with the value undefined if
 //the property doesnt exist
 // rest2.owner = rest2.owner && '<ANONYMOUS>'; //TRUTHY && '<ANONYMOUS>'
 
@@ -124,19 +134,20 @@ rest2.owner &&= '<ANONYMOUS>';
 console.log(rest1);
 console.log(rest2);
 
-
 //LOOPING ARRAYS: THE FOR-OF LOOP
-const menu = [...restaurant.starterMenu,...restaurant.mainMenu]
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of menu) {
   console.log(item);
 }
 
-//get the index 
-for(const item of menu.entries()){
-  console.log(`${item[0]+1}: ${item[1]}`);
+//get the index
+for (const item of menu.entries()) {
+  console.log(`${item[0] + 1}: ${item[1]}`);
 }
 //index using destructuring
-for(const [i, item] of menu.entries()){
-  console.log(`${i+1}: ${item}`);
+for (const [i, item] of menu.entries()) {
+  console.log(`${i + 1}: ${item}`);
 }
 console.log([...menu.entries()]);
+
+//ENHANCED OBJECT LITERALS
