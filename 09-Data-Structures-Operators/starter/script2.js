@@ -86,3 +86,40 @@ console.log(guestss2);
 //?? works with nullish values: null and undefined, so it will take the real value of numGuests which is 0
 const correctGuest = restaurant.numGuests ?? 10;
 console.log(correctGuest);
+
+
+//LOGICAL ASSIGNMENT OPERATORS
+const rest1 ={
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+const rest2 ={
+  name: 'La Piazza',
+  owner: 'Giovanni Giorgio',
+};
+
+// rest1.numGuests = rest1.numGuests || 10; //if rest1.numGuests = 0 or is undefined (falsy value) itll take 10
+// rest2.numGuests = rest2.numGuests || 10;
+
+//Logical OR assignment operator (same as above)
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+//Logical NULLISH assignment operator
+rest1.numGuests ??= 10; //if numGuests is 0, it will keep that value
+rest2.numGuests ??= 10;
+
+//rest1.owner = rest1.owner && '<ANONYMOUS>'; //Falsy && 'ANONYMOUS' = undefined
+//this old syntax causes javascript to create the owner property with the value undefined if 
+//the property doesnt exist
+// rest2.owner = rest2.owner && '<ANONYMOUS>'; //TRUTHY && '<ANONYMOUS>'
+
+//Logical AND assignment operator (same as above)
+//With this new syntax if the owner property doesnt exist it will just shortcircuit to the falsy value
+// and do nothing
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
