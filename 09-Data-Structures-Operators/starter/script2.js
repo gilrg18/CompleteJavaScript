@@ -56,12 +56,11 @@ console.log(true || 0);
 console.log(undefined || null); //null even tho null is also a falsy value
 console.log(undefined || 0 || ''|| 'Hello' || 23 || null); //Hello because its the first truthy value
 
-restaurant.numGuests = 0 //cero is falsy so carefull with this
+ //cero is falsy so carefull with this
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests1); //if restaurant.numGuests is undefined, guests1 will be 10
 
-const guestss2 = restaurant.numGuests || 10;
-console.log(guestss2);
+
 
 console.log('----AND----');
 console.log(0 && 'Gil'); //shortcircuits when the first value is false, 0
@@ -76,3 +75,14 @@ if(restaurant.orderPizza){
 
 //if the first value is truthy the second one will execute
 restaurant.orderPizza && restaurant.orderPizza('mushroom','pp','siu')
+
+
+//THE NULLISH CUALESCING OPERATOR (??)
+restaurant.numGuests = 0
+const guestss2 = restaurant.numGuests || 10;
+//The real amount is 0 but it takes 10 because 0 is falsy.. the cualescing operator fixes this
+console.log(guestss2);
+
+//?? works with nullish values: null and undefined, so it will take the real value of numGuests which is 0
+const correctGuest = restaurant.numGuests ?? 10;
+console.log(correctGuest);
