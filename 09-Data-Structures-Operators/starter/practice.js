@@ -261,3 +261,18 @@ for (let i = 0; i < books.length; i++) {
 
 }
 
+//LOCAL ASSIGNMENT OPERATORS
+for (let i = 0; i < books.length; i++) {
+  const book = books [i];
+  book.edition ||= 1; 
+  console.log(book.edition);
+}
+
+for (let i = 0; i < books.length; i++) {
+  const book = books [i];
+  if(book.thirdParty.goodreads.rating < 4.2){
+    book.highlighted &&= false;
+  }
+ //book.highlighted &&= !(book.thirdParty.goodreads.rating < 4.2)
+  console.log(book.highlighted);
+}
