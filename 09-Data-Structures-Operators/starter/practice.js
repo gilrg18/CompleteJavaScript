@@ -329,3 +329,10 @@ const newBook2 = {
 }
 
 console.log(newBook2);
+
+//OPTIONAL CHAINING (?.)
+function getFirstKeyword(book){
+  console.log(book.keywords?.[0] ?? undefined);
+}
+getFirstKeyword(books[0]);
+getFirstKeyword(newBook2); 
