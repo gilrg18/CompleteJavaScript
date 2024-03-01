@@ -210,7 +210,7 @@ console.log(language,programmingLanguage);
 
 let bookTitle = 'unknown';
 let bookAuthor = 'unknown';
-({title: bookTitle, author: bookAuthor}) =books[0];
+//({title: bookTitle, author: bookAuthor}) =books[0];
 console.log(bookTitle, bookAuthor);
 
 const{thirdParty:{goodreads:{rating:bookRating}}}=books[0];
@@ -254,3 +254,10 @@ console.log(hasExamplesInJava(books[0]));
 for(let i = 0;i <books.length;i++){
   console.log(books[i].onlineContent && `${books[i].title} provides online content`)
 }
+
+//THE NULLISH CUALESCING OPERATOR (??)
+for (let i = 0; i < books.length; i++) {
+  books[i].onlineContent ?? console.log(`${books[i].title} provides online content`);
+
+}
+
