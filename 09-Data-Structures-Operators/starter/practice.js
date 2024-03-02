@@ -336,3 +336,24 @@ function getFirstKeyword(book){
 }
 getFirstKeyword(books[0]);
 getFirstKeyword(newBook2); 
+
+
+//Looping Objects: Object Keys, Values and Entries
+const entries = []
+console.log(entries);
+for(const x of Object.keys(books[0].thirdParty.goodreads)){
+  entries.push([x])
+}
+console.log(entries);
+
+for(const [key,values] of Object.values(books[0].thirdParty.goodreads).entries()){
+  entries[key].push(values);
+  console.log(values);
+}
+console.log(entries);
+
+
+const entries2 = Object.entries(books[0].thirdParty.goodreads);
+console.log(entries2);
+
+console.log(entries, entries2)
