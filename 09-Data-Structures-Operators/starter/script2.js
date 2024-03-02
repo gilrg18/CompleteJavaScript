@@ -182,3 +182,27 @@ const users = [
 console.log(user[0]?.name ?? 'User list is empty');
 console.log(users[0]?.name ?? 'User doesnt exist');
 console.log(users[1]?.name ?? 'User doesn\'t exist');
+
+
+//LOOPING OBJECTS: OBJECT KEYS, VALUES, AND ENTRIES
+//looping over objects indirectly, over property names also called keys
+const properties = Object.keys(openingHours);
+console.log(properties);
+let openStr = `We are open on ${properties.length} days: `;
+
+for(const day of properties){
+  openStr += `${day},`;
+}
+console.log(openStr);
+
+//Property values
+const values =  Object.values(openingHours);
+console.log(values);
+
+//Entire Object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for(const [key, {open, close}] of entries){
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
