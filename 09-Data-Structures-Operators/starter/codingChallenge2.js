@@ -74,3 +74,8 @@ for (const [team, odd] of formattedOdds) {
 // Hummels: 1,
 // Lewandowski: 2
 // }
+const scorers = {}
+for (const scorer of game.scored) {
+    scorers[scorer] ? scorers[scorer]++ : scorers[scorer] = 1 ;
+}
+console.log(scorers);
