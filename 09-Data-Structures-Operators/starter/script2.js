@@ -152,10 +152,9 @@ console.log([...menu.entries()]);
 
 //ENHANCED OBJECT LITERALS
 
-
 //OPTIONAL CHAINING (?.)
-if(restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
-if(restaurant.openingHours.thu) console.log(restaurant.openingHours.thu.open);
+if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+if (restaurant.openingHours.thu) console.log(restaurant.openingHours.thu.open);
 
 //to check if something exists.. in this case mon
 //undefined gets returned so it resolves errors and bugs
@@ -164,25 +163,21 @@ console.log(restaurant.openingHours?.mon?.open);
 // console.log(restaurant.openingHours.mon.open);//error cannot read properties of undefined
 
 const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-for(const day of days){
+for (const day of days) {
   const open = restaurant.openingHours[day]?.open ?? 'closed';
   console.log(`On ${day}, we open at ${open}`);
-  
 }
 
 //methods
-console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
-console.log(restaurant.orderSiu?.(0,1) ?? 'Method does not exist');
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderSiu?.(0, 1) ?? 'Method does not exist');
 
 //arrays
 const user = [];
-const users = [
-  {name: 'Gil', email:'siu@siu.siu'}
-];
+const users = [{ name: 'Gil', email: 'siu@siu.siu' }];
 console.log(user[0]?.name ?? 'User list is empty');
 console.log(users[0]?.name ?? 'User doesnt exist');
-console.log(users[1]?.name ?? 'User doesn\'t exist');
-
+console.log(users[1]?.name ?? "User doesn't exist");
 
 //LOOPING OBJECTS: OBJECT KEYS, VALUES, AND ENTRIES
 //looping over objects indirectly, over property names also called keys
@@ -190,19 +185,55 @@ const properties = Object.keys(openingHours);
 console.log(properties);
 let openStr = `We are open on ${properties.length} days: `;
 
-for(const day of properties){
+for (const day of properties) {
   openStr += `${day},`;
 }
 console.log(openStr);
 
 //Property values
-const values =  Object.values(openingHours);
+const values = Object.values(openingHours);
 console.log(values);
 
 //Entire Object
 const entries = Object.entries(openingHours);
 console.log(entries);
 
-for(const [key, {open, close}] of entries){
+for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
+
+//SETS - Collection of unique values (no duplicates)
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet); //removes all duplicates
+console.log(new Set('Gil'));//{'G', 'i', 'l'}
+console.log(ordersSet.size);//3 unique diferent orders
+console.log(ordersSet.has('Pizza'));
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');//gets ignored
+ordersSet.delete('Pizza');
+//ordersSet.clear()
+console.log(ordersSet);
+//Theres no way of retrieving values out of a set because the values
+//have no order, index and all values are unique, so theres no point.
+//All we need to know is if a certain value IS in the set or not.
+//Sets are iterable
+for(const order of ordersSet){
+  console.log(order);
+}
+//The main use case of Sets is to remove duplicate values from arrays
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']
+// const staffUnique = new Set(staff);
+//Convert from set to array using spread operator (works on ALL iterables)
+const staffUnique = [...new Set(staff)]
+console.log(staffUnique);
+console.log(new Set('Gilbertinho').size);
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
