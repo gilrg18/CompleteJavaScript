@@ -212,12 +212,12 @@ const ordersSet = new Set([
   'Pizza',
 ]);
 console.log(ordersSet); //removes all duplicates
-console.log(new Set('Gil'));//{'G', 'i', 'l'}
-console.log(ordersSet.size);//3 unique diferent orders
+console.log(new Set('Gil')); //{'G', 'i', 'l'}
+console.log(ordersSet.size); //3 unique diferent orders
 console.log(ordersSet.has('Pizza'));
 console.log(ordersSet.has('Bread'));
 ordersSet.add('Garlic Bread');
-ordersSet.add('Garlic Bread');//gets ignored
+ordersSet.add('Garlic Bread'); //gets ignored
 ordersSet.delete('Pizza');
 //ordersSet.clear()
 console.log(ordersSet);
@@ -225,15 +225,66 @@ console.log(ordersSet);
 //have no order, index and all values are unique, so theres no point.
 //All we need to know is if a certain value IS in the set or not.
 //Sets are iterable
-for(const order of ordersSet){
+for (const order of ordersSet) {
   console.log(order);
 }
 //The main use case of Sets is to remove duplicate values from arrays
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 // const staffUnique = new Set(staff);
 //Convert from set to array using spread operator (works on ALL iterables)
-const staffUnique = [...new Set(staff)]
+const staffUnique = [...new Set(staff)];
 console.log(staffUnique);
 console.log(new Set('Gilbertinho').size);
-console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
 
+//MAPS: FUNDAMENTALS - Key:Value pairs
+//difference between objects and maps: keys in maps can be ANY type
+//in objects the keys are basically always strings
+//In maps keys can even be objects or arrays or other maps.
+//Which can lead to really advanced stuff
+const rest = new Map();
+rest.set('name', 'Los Arcos');
+rest.set(1, 'Mazatlan, Sinaloa');
+rest.set(2, 'Gdl, Jalisco');
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+//get value based on the key
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+console.log(rest);
+
+
+let time = 8;
+console.log(rest.get(time > rest.get('open') && time<rest.get('close')))
+time = 21;
+console.log(rest.get(time > rest.get('open') && time<rest.get('close')))
+
+//check if map has certain key
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+console.log(rest.size);
+// rest.clear()
+console.log(rest);
+
+//arrays or objects as map keys
+//even tho we wrote [1,2] in set and get methods, theyre not the same in the heap so .get([1,2]) is undefined
+rest.set([1,2], 'Test')
+console.log(rest);
+console.log(rest.get([1,2])); //undefined
+//to make it work u have to use an array constant
+const arr = [1,2];
+rest.set(arr, 'Test')
+console.log(rest);
+console.log(rest.get(arr)); //test
+
+rest.set(document.querySelector('h1'),'Heading');
+console.log(rest);
