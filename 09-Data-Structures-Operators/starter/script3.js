@@ -35,3 +35,55 @@
 //Easy to iterate
 //Easy to compute size
 //Use when you simply need to map key to values
+
+
+//WORKING WITH STRINGS - PART 1
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log('B737'[0]);
+console.log(airline.length);
+console.log('ASDF'.length);
+
+//string methods
+console.log(airline.indexOf('r')); //gives the first ocurrence
+console.log(airline.lastIndexOf('r'));//gives the last ocurrence
+console.log(airline.indexOf('Portugal'));//case sensitive, it wont find 'portugal'
+
+//Strings are inmutable, theyre primitives, slice doesnt affect the original string
+console.log(airline.slice(4));//slice(beginParameter) Air Portugal
+console.log(airline.slice(4,7));//slice(begin,end) Air length = end - beggining
+
+//extract the first word
+console.log(airline.slice(0,airline.indexOf(' ')));
+//last word
+console.log(airline.slice(airline.lastIndexOf(' ') + 1 ));
+
+//start extracting from the end
+console.log(airline.slice(-2));
+//remove characters from the end
+console.log(airline.slice(1,-2));
+
+const checkMiddleSeat = function(seat){
+    //B and E are middle seats
+    const s = seat.slice(-1);
+    if(s==='B' || s==='E') console.log(`You gotthe middle seat ${seat} 🤣`);
+    else console.log(`Lucky you ${seat} 😁`);
+}
+
+checkMiddleSeat('11B')
+checkMiddleSeat('23C')
+checkMiddleSeat('3E')
+
+//Methods only work on objects, not primitives... so whats going on?
+//Behind the scenes, whenever we call a method on a string Javascript converts the string PRIMITIVE to string OBJECT 
+//with the same content and then its on that OBJECT where the methods are called.
+//This process is called BOXING (takes our string and puts it into an object(the box))
+//This is what happens behind the scenes when we call methods on a string
+//Then when the operation is done, the object is converted back to a string primitive
+console.log(new String('gil'));
+console.log(typeof new String('gil'));//object
+//All string methods return primitives, even if theyre called on a string object
+console.log(typeof new String('gil').slice(0));//string
