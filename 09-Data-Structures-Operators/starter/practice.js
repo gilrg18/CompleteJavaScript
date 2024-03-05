@@ -395,3 +395,31 @@ for(const[key,value] of firstBookMap){
   if (typeof value === "number") console.log(key);
 }
 
+//WORKING WITH STRINGS - PART 1
+console.log(books[0].ISBN['6'])
+console.log(books[0].ISBN['4'])
+console.log(books[0].ISBN['9'])
+console.log(books[0].ISBN['8'])
+
+const quote = 'A computer once beat me at chess, but it was no match for me at kick boxing';
+console.log(quote.indexOf('chess'))
+console.log(quote.slice(quote.lastIndexOf(' ')+1));;
+
+const isContributor = function(str){
+  if(str.slice(str.lastIndexOf(' ')+1)==='(Contributor)')
+    return true;
+  else
+    return false;
+}
+console.log(isContributor('Julie Sussman (Contributor)'));
+console.log(isContributor('Robert (Contributor) Sedgewick'));
+
+console.log('Julie Sussman (Contributor)'.lastIndexOf('(Contributor)'));
+console.log('Robert Sedgewick'.lastIndexOf('(Contributor)'))
+console.log('Julie Sussman (Contributor)'.indexOf('(Contributor)'));
+
+function isContributor2(author) {
+  return author.lastIndexOf('(Contributor)') !== -1;
+}
+console.log(isContributor2('Julie Sussman (Contributor)'));
+console.log(isContributor2('Robert (Contributor) Sedgewick'));
