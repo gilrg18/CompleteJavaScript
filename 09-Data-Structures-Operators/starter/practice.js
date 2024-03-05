@@ -377,3 +377,12 @@ console.log(uniqueKeywordsArr);
 
 uniqueKeywords.clear();
 console.log(uniqueKeywords);
+
+//MAPS: FUNDAMENTALS
+const bookMap = new Map([['title', 'Clean Code'], ['author', 'Robert C. Martin']]);
+bookMap.set('pages', 464)
+console.log(bookMap);
+console.log(`${bookMap.get('title')} by ${bookMap.get('author')}`);
+console.log(bookMap.size);
+console.log(bookMap.has('author') ? "The author of the book is known": false);
+if(bookMap.has('author')) console.log('The author is known');
