@@ -462,3 +462,36 @@ logBookTheme('Data structures and algorithms by cormen');
 logBookTheme('Computer algorithms by Gil');
 logBookTheme('Big Data systems');
 
+//WORKING WITH STRINGS - PART 3
+const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+const logBookCategories = function(books){
+  const booksArray = books.split(';');
+  console.log(booksArray);
+  for (const book of booksArray) {
+    console.log(book);
+  }
+}
+logBookCategories(bookCategories);
+
+const getKeywordsAsString = function(books){
+  const keywords = [];
+  for (const book of books) {
+    keywords.push(...book.keywords)
+  }
+  console.log(keywords);
+  const noDuplicates = [...new Set(keywords)]
+  console.log(noDuplicates);
+  const semiColonKeywords = noDuplicates.join(';')
+  console.log(semiColonKeywords);
+}
+getKeywordsAsString(books);
+
+
+
+const bookChapters = [['The Basics', 14], ['Sorting', 254], ['Searching', 372], ['Graphs', 526], ['Strings', 706]];
+const logBookChapters = function (bookChapters){
+  for (const [book, pages] of bookChapters) {
+    console.log(`${book.padEnd(15,'_')+pages}`);
+  }
+}
+logBookChapters(bookChapters);
