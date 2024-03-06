@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 //SUMMARY: WHICH DATA STRUCTURE TO USE?
-//3 sources of data: 
+//3 sources of data:
 //From the program itself: data written directly in source code (e.g status messages)
 //From the UI: Data input from the user or data written in DOM (e.g tasks in todo app)
 //From external sources: Data fetched for example from web API (e.g recipe, movie, weather, objects)
@@ -19,7 +19,7 @@
 
 //SETS:
 //Use when you need to work with unique values
-//Use when high-performance is REALLY important, operations like 
+//Use when high-performance is REALLY important, operations like
 //searching or deleting an item can be 10x faster in sets than arrays
 //Use to REMOVE DUPLICATES from arrays
 
@@ -36,7 +36,6 @@
 //Easy to compute size
 //Use when you simply need to map key to values
 
-
 //WORKING WITH STRINGS - PART 1
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
@@ -49,86 +48,87 @@ console.log('ASDF'.length);
 
 //string methods
 console.log(airline.indexOf('r')); //gives the first ocurrence
-console.log(airline.lastIndexOf('r'));//gives the last ocurrence
-console.log(airline.indexOf('Portugal'));//case sensitive, it wont find 'portugal'
+console.log(airline.lastIndexOf('r')); //gives the last ocurrence
+console.log(airline.indexOf('Portugal')); //case sensitive, it wont find 'portugal'
 
 //Strings are inmutable, theyre primitives, slice doesnt affect the original string
-console.log(airline.slice(4));//slice(beginParameter) Air Portugal
-console.log(airline.slice(4,7));//slice(begin,end) Air length = end - beggining
+console.log(airline.slice(4)); //slice(beginParameter) Air Portugal
+console.log(airline.slice(4, 7)); //slice(begin,end) Air length = end - beggining
 
 //extract the first word
-console.log(airline.slice(0,airline.indexOf(' ')));
+console.log(airline.slice(0, airline.indexOf(' ')));
 //last word
-console.log(airline.slice(airline.lastIndexOf(' ') + 1 ));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
 //start extracting from the end
 console.log(airline.slice(-2));
 //remove characters from the end
-console.log(airline.slice(1,-2));
+console.log(airline.slice(1, -2));
 
-const checkMiddleSeat = function(seat){
-    //B and E are middle seats
-    const s = seat.slice(-1);
-    if(s==='B' || s==='E') console.log(`You gotthe middle seat ${seat} 🤣`);
-    else console.log(`Lucky you ${seat} 😁`);
-}
+const checkMiddleSeat = function (seat) {
+  //B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log(`You gotthe middle seat ${seat} 🤣`);
+  else console.log(`Lucky you ${seat} 😁`);
+};
 
-checkMiddleSeat('11B')
-checkMiddleSeat('23C')
-checkMiddleSeat('3E')
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
 
 //Methods only work on objects, not primitives... so whats going on?
-//Behind the scenes, whenever we call a method on a string Javascript converts the string PRIMITIVE to string OBJECT 
+//Behind the scenes, whenever we call a method on a string Javascript converts the string PRIMITIVE to string OBJECT
 //with the same content and then its on that OBJECT where the methods are called.
 //This process is called BOXING (takes our string and puts it into an object(the box))
 //This is what happens behind the scenes when we call methods on a string
 //Then when the operation is done, the object is converted back to a string primitive
 console.log(new String('gil'));
-console.log(typeof new String('gil'));//object
+console.log(typeof new String('gil')); //object
 //All string methods return primitives, even if theyre called on a string object
-console.log(typeof new String('gil').slice(0));//string
-
+console.log(typeof new String('gil').slice(0)); //string
 
 //WORKING WITH STRINGS - PART 2
 //change case of string
 console.log(airline.toLowerCase());
 console.log(airline.toUpperCase());
-console.log(typeof 'gil'.toUpperCase())
+console.log(typeof 'gil'.toUpperCase());
 console.log(typeof new String('gil').toUpperCase());
 
 //fix capitalization in name
 const passenger = 'giLbERtO'; //must be Gilberto
 const passengerLower = passenger.toLowerCase();
-const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
 console.log(passengerCorrect);
 
-const rightName = function(name){
-    const nameLower = name.toLowerCase();
-    const nameCorrect = nameLower[0].toUpperCase() + nameLower.slice(1);
-    console.log(nameCorrect);
-}
-rightName('GilbERTO')
+const rightName = function (name) {
+  const nameLower = name.toLowerCase();
+  const nameCorrect = nameLower[0].toUpperCase() + nameLower.slice(1);
+  console.log(nameCorrect);
+};
+rightName('GilbERTO');
 
 //Comparing emails
 const email = 'hello@gil.io';
-const loginEmail = '  Hello@giL.IO  '
+const loginEmail = '  Hello@giL.IO  ';
 
 const lowerEmail = loginEmail.toLowerCase();
 const trimmedEmail = lowerEmail.trim();
-console.log(trimmedEmail===email);
+console.log(trimmedEmail === email);
 
 const normalizedEmail = loginEmail.toLowerCase().trim();
 console.log(normalizedEmail);
-console.log(normalizedEmail===email)
+console.log(normalizedEmail === email);
 
 //replacing
 const priceGB = '288,97%';
-const priceUS =  priceGB.replace('%','$').replace(',','.')
+const priceUS = priceGB.replace('%', '$').replace(',', '.');
 console.log(priceUS);
 
 //replace only replaces the first occurrence
-const announcement = 'All passengers come to boarding door 23. Boarding door 23!!';
-console.log(announcement.replaceAll('door','gate'));
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!!';
+console.log(announcement.replaceAll('door', 'gate'));
 //replaceAll didnt exist in the past so we can also use a Regular Expression
 ///door/g   g flag stands for 'global' so all 'door's will be replaced
 console.log(announcement.replace(/door/g, 'gate'));
@@ -139,27 +139,26 @@ console.log(avion.includes('A320'));
 console.log(avion.includes('Boeing'));
 console.log(avion.startsWith('Air'));
 
-if(avion.startsWith('Airbus') && avion.endsWith('neo')){
-    console.log('Part of the New Airbus family');
+if (avion.startsWith('Airbus') && avion.endsWith('neo')) {
+  console.log('Part of the New Airbus family');
 }
 
-const checkBaggage = function(items){
-    //to lower case so its eaasier to compare strings
-    const baggage = items.toLowerCase();
-    if(baggage.includes('gun') || baggage.includes('knife')){
-        console.log('NOT ALLOWED!!');
-    }else{
-        console.log('Welcome aboard :)');
-    }
-}
+const checkBaggage = function (items) {
+  //to lower case so its eaasier to compare strings
+  const baggage = items.toLowerCase();
+  if (baggage.includes('gun') || baggage.includes('knife')) {
+    console.log('NOT ALLOWED!!');
+  } else {
+    console.log('Welcome aboard :)');
+  }
+};
 
 checkBaggage('I have a laptop, some Food and a pocket Knife');
-checkBaggage('Socks and camera')
-checkBaggage('Got some snacks and a gun for protection')
-
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
 
 //WORKING WITH STRING - PART 3
-console.log('a+very+nice+string'.split('+'))
+console.log('a+very+nice+string'.split('+'));
 console.log('Gilberto Rogel'.split(' '));
 const [firstName, lastName] = 'Gilberto Rogel'.split(' ');
 console.log(firstName, lastName);
@@ -167,45 +166,64 @@ console.log(firstName, lastName);
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join('___');
 console.log(newName);
 
-const capitalizeName = function(name){
-    const names = name.split(' ');
-    const upperNames = []
-    for (const n of names) {
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const upperNames = [];
+  for (const n of names) {
     //    upperNames.push(n[0].toUpperCase() + n.slice(1))
-    upperNames.push(n.replace(n[0],n[0].toUpperCase()))
-    }
-    console.log(upperNames.join(' '))
-}
+    upperNames.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(upperNames.join(' '));
+};
 
-const passenger2 = 'jessica ann smith davies'
-capitalizeName(passenger2)
-capitalizeName('gilberto rogel garcia siu')
+const passenger2 = 'jessica ann smith davies';
+capitalizeName(passenger2);
+capitalizeName('gilberto rogel garcia siu');
 
 //Padding a string
-const message = 'Go to gate 23!'
+const message = 'Go to gate 23!';
 //padStart(total length of the string, what u wanna fill it with)
-console.log(message.padStart(25,'+' ).padEnd(35,'+'));
-console.log(message.padEnd(25,'+' ));
+console.log(message.padStart(25, '+').padEnd(35, '+'));
+console.log(message.padEnd(25, '+'));
 
 //masking passwords/credit cards/emails
-const maskCreditCard = function(number){
-    const str = number + '';
-    //const str = String(number)
-    const last = str.slice(-4);
-    console.log(str, last);
-    console.log(last.padStart(str.length, '*'));
-}
-maskCreditCard(55555555555555)
-maskCreditCard(54213487192)
+const maskCreditCard = function (number) {
+  const str = number + '';
+  //const str = String(number)
+  const last = str.slice(-4);
+  console.log(str, last);
+  console.log(last.padStart(str.length, '*'));
+};
+maskCreditCard(55555555555555);
+maskCreditCard(54213487192);
 
 //Repeat
 const message2 = 'Bad weather... All Departures Delayed... ';
 console.log(message2.repeat(5));
 
-const planesInLine = function(n){
-    console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
-}
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
 planesInLine(5);
 planesInLine(3);
 planesInLine(12);
 
+//STRINGS METHODS PRACTICE
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
+
+const getCode = str => str.slice(0,3).toUpperCase();
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} from ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h')})`.padStart(45,' ');
+  console.log(output);
+}
