@@ -423,3 +423,42 @@ function isContributor2(author) {
 }
 console.log(isContributor2('Julie Sussman (Contributor)'));
 console.log(isContributor2('Robert (Contributor) Sedgewick'));
+
+//WORKING WITH STRINGS - PART 2
+const normalizeAuthorName = function(name){
+  name = name.trim();
+  const firstName = name.slice(0,name.indexOf(' '));
+  console.log(firstName);
+  const lastName = name.slice(name.indexOf(' ') + 1, name.lastIndexOf(' ') + 1);
+  console.log(lastName);
+  const capitalizedFirstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
+  console.log(capitalizedFirstName);
+  const capitalizedLastName = lastName[0].toUpperCase() + lastName.slice(1).toLowerCase().trim();
+  console.log(capitalizedLastName);
+
+  console.log(capitalizedFirstName+' '+capitalizedLastName);
+}
+normalizeAuthorName('  JuliE sussMan (Contributor)')
+normalizeAuthorName('  Gilberto RoGEL Contributor');
+
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+console.log(books[1].title);
+console.log(newBookTitle);
+
+
+const logBookTheme = function(title){
+  title = title.toLowerCase();
+  if(title.startsWith('computer')){
+    console.log('This book is about computers');
+  }else if(title.includes('algorithms') && title.includes('structures')){
+    console.log('This books is about algorithms and data structures');
+  }else if((title.endsWith('system') || title.endsWith('systems')) && !title.includes('operating')){
+    console.log('This book is about some systems, but definitely not abut operating systems');
+  }
+}
+
+
+logBookTheme('Data structures and algorithms by cormen');
+logBookTheme('Computer algorithms by Gil');
+logBookTheme('Big Data systems');
+
