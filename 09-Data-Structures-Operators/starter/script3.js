@@ -156,3 +156,56 @@ const checkBaggage = function(items){
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera')
 checkBaggage('Got some snacks and a gun for protection')
+
+
+//WORKING WITH STRING - PART 3
+console.log('a+very+nice+string'.split('+'))
+console.log('Gilberto Rogel'.split(' '));
+const [firstName, lastName] = 'Gilberto Rogel'.split(' ');
+console.log(firstName, lastName);
+
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join('___');
+console.log(newName);
+
+const capitalizeName = function(name){
+    const names = name.split(' ');
+    const upperNames = []
+    for (const n of names) {
+    //    upperNames.push(n[0].toUpperCase() + n.slice(1))
+    upperNames.push(n.replace(n[0],n[0].toUpperCase()))
+    }
+    console.log(upperNames.join(' '))
+}
+
+const passenger2 = 'jessica ann smith davies'
+capitalizeName(passenger2)
+capitalizeName('gilberto rogel garcia siu')
+
+//Padding a string
+const message = 'Go to gate 23!'
+//padStart(total length of the string, what u wanna fill it with)
+console.log(message.padStart(25,'+' ).padEnd(35,'+'));
+console.log(message.padEnd(25,'+' ));
+
+//masking passwords/credit cards/emails
+const maskCreditCard = function(number){
+    const str = number + '';
+    //const str = String(number)
+    const last = str.slice(-4);
+    console.log(str, last);
+    console.log(last.padStart(str.length, '*'));
+}
+maskCreditCard(55555555555555)
+maskCreditCard(54213487192)
+
+//Repeat
+const message2 = 'Bad weather... All Departures Delayed... ';
+console.log(message2.repeat(5));
+
+const planesInLine = function(n){
+    console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+}
+planesInLine(5);
+planesInLine(3);
+planesInLine(12);
+
