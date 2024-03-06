@@ -87,3 +87,72 @@ console.log(new String('gil'));
 console.log(typeof new String('gil'));//object
 //All string methods return primitives, even if theyre called on a string object
 console.log(typeof new String('gil').slice(0));//string
+
+
+//WORKING WITH STRINGS - PART 2
+//change case of string
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+console.log(typeof 'gil'.toUpperCase())
+console.log(typeof new String('gil').toUpperCase());
+
+//fix capitalization in name
+const passenger = 'giLbERtO'; //must be Gilberto
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+const rightName = function(name){
+    const nameLower = name.toLowerCase();
+    const nameCorrect = nameLower[0].toUpperCase() + nameLower.slice(1);
+    console.log(nameCorrect);
+}
+rightName('GilbERTO')
+
+//Comparing emails
+const email = 'hello@gil.io';
+const loginEmail = '  Hello@giL.IO  '
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail===email);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+console.log(normalizedEmail===email)
+
+//replacing
+const priceGB = '288,97%';
+const priceUS =  priceGB.replace('%','$').replace(',','.')
+console.log(priceUS);
+
+//replace only replaces the first occurrence
+const announcement = 'All passengers come to boarding door 23. Boarding door 23!!';
+console.log(announcement.replaceAll('door','gate'));
+//replaceAll didnt exist in the past so we can also use a Regular Expression
+///door/g   g flag stands for 'global' so all 'door's will be replaced
+console.log(announcement.replace(/door/g, 'gate'));
+
+//Booleans
+const avion = 'Airbus A320neo';
+console.log(avion.includes('A320'));
+console.log(avion.includes('Boeing'));
+console.log(avion.startsWith('Air'));
+
+if(avion.startsWith('Airbus') && avion.endsWith('neo')){
+    console.log('Part of the New Airbus family');
+}
+
+const checkBaggage = function(items){
+    //to lower case so its eaasier to compare strings
+    const baggage = items.toLowerCase();
+    if(baggage.includes('gun') || baggage.includes('knife')){
+        console.log('NOT ALLOWED!!');
+    }else{
+        console.log('Welcome aboard :)');
+    }
+}
+
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera')
+checkBaggage('Got some snacks and a gun for protection')
