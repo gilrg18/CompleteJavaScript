@@ -21,3 +21,61 @@ createBooking('LH123', 5);
 createBooking('AB436');
 createBooking('XX144', 10,999);
 createBooking('XX144', undefined, undefined);//undefined takes the default value
+
+//HOW PASSING ARGUMENTS WORKS: VALUE VS REFERENCE
+const flight = 'LH234';
+const gil = {
+    name:'Gil Rog',
+    passport: 1232323232
+}
+
+const checkIn = function(flightNum, passenger){
+    //flightNum is a copy(a completely different variable) of the original flightNum LH234
+    flightNum = 'LH999';
+    //passenger is not a copy of gil, it takes the reference to the gil object in the memory heap
+    //so manipulating the passenger object is the same as manipulating the gil object
+    passenger.name = 'Mr. '+passenger.name;
+    if(passenger.passport === 1232323232){
+        console.log('Check in')
+    }else{
+        console.log('Wrong passport!')
+    }
+}
+
+checkIn(flight, gil)
+console.log(flight, gil);
+
+//passenger is not a copy of gil, it takes the reference to the gil object in the memory heap
+//its like doing:
+let passengerCopy = gil; //it just copies the reference 
+let flightCopy = flight;
+
+const newPassport = function(person){
+    person.passport = Math.trunc(Math.random() * 10000000);
+}
+
+//Two functions manipulating the same object which may cause issues
+newPassport(gil);
+checkIn(flight, gil)
+
+//JAVASCRIPT appears to pass by reference but in reality it cant do that
+//it passes a value that contains a memory address
+//so basically it passes a reference but it doesnt pass BY reference
+
+/*
+In programming languages, Arguments can be passed by value, or passed by reference.
+
+- JavaScript works only passing by value.
+
+- When we pass primitive values, the function works with a value, 
+which is a copy of the original value.
+
+- When we pass an object, the function works with a value, 
+which is a copy of the reference that address to the spot in the memory 
+where the original object is in the memory (still is not a reference).
+
+-So, the subtle thing that makes JS different from some other languages, 
+is that the reference to an object is in itself a value, 
+that's why we only have passing by value, basically.
+
+*/
