@@ -79,3 +79,43 @@ is that the reference to an object is in itself a value,
 that's why we only have passing by value, basically.
 
 */
+
+
+//FIRST-CLASS AND HIGHER-ORDER FUNCTIONS
+
+//FIRST CLASS FUNCTIONS
+//Functions are treated as values
+//Functions are just another "type" of object
+
+//Store functions in variables or properties
+const add = (a,b) => a+b;
+const counter = {
+    value:1,
+    inc: function() {this.value++}
+}
+
+//Pass functions as arugments to Other functions
+//const greet = () => console.log('Hello!');
+//btn.addEvenListener('click',greet)
+
+//Return functions from functions
+//Call methods on functions counter.inc.bind(someotherobject) (bind on another lesson)
+
+
+//HIGHER ORDER FUNCTIONS
+//A function that RECEIVES another function as an argument, that RETURNS a new function or both
+//Possible because of first-class functions
+
+//Function that receives another function
+//const greet = () => console.log('Hello!');
+//btn.addEvenListener('click',greet)
+//addEventListener is a higher order function and greet is a callback function (callbacks on another lesson)
+
+//Function that returns a new function
+function count(){//Higher order function
+    let counter = 0;
+    return function (){ //returned function
+        counter++;
+    }
+}
+
