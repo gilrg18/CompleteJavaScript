@@ -153,3 +153,21 @@ const high5 = function (){
 
 //ABSTRACTION means hiding implementation/details because we dont really care about it
 //for example the transformer function doesnt care about how the callback functions passed to it are implemented
+
+
+//FUNCTIONS RETURNING FUNCTIONS
+//really useful for functional programming (seen on another lesson)
+const greet = function(greeting){
+    return function(name){
+        console.log(`${greeting} ${name}`);
+    }
+}
+greet('Hola')('gil')
+//greet returns a new function that is stored into the new variable greeterHey
+const greeterHey = greet('Hey');
+greeterHey('Gil')
+greeterHey('Mike')
+
+const greetArrow = greeting => name => console.log(`${greeting} ${name}`);
+const greeterArrow = greetArrow('Hello');
+greeterArrow('Gil')
