@@ -114,3 +114,29 @@ const addTax2 = function(rate) {
 //console.log(addTax2(.23)(100));
 const addTaxMx2 = addTax2(.23);
 console.log(addTaxMx2(500));
+
+
+//IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
+//Sometimes we need functions that only need to be invoked once and never again.
+//A function that disappears right after its called once
+
+//we simply transform the statement into an expression by wrapping it with ()
+(function() {
+    console.log('This Will Never Run Again');
+    //encapsulated inside this functions scope
+    const isPrivate = 23;
+})(); //Immediately invoked function expression (IIFE)
+
+//console.log(isPrivate); //not defined
+
+(() => console.log('This Will Also Never Run Again'))(); //IIFE with arrow functions
+
+//IIFE also help for encapsulating data but theyre not used so much anymore for that because
+//if we want to encapsulate we can use code blocks:
+{
+    const isPrivate = 23;
+    var notPrivate = 45;
+}
+
+// console.log(isPrivate); //not defined
+console.log(notPrivate); //45
